@@ -54,7 +54,9 @@ class WP_Style_Guide {
 				'hookname' => null,
 			),
 		);
+	}
 
+	public function run() {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 		add_action( 'admin_head', array( $this, 'admin_head' ) );
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
@@ -154,3 +156,4 @@ class WP_Style_Guide {
 }
 
 $wp_style_guide = new WP_Style_Guide;
+$wp_style_guide->run();
