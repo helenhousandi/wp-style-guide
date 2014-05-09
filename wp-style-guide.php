@@ -27,39 +27,50 @@ class WP_Style_Guide {
 	 * Set up hooks.
 	 */
 	public function __construct() {
-		// define our screens
-		$this->screens = array(
-			'mp6-sg-jquery-ui' => array(
-				'page_title' => __( 'jQuery UI Components' ),
-				'menu_title' => __( 'jQuery UI Components' ),
-				'callback' => 'jquery_ui', // note that this has to be a class method
-				'hookname' => null,
-			),
-			'mp6-sg-forms' => array(
-				'page_title' => __( 'Forms' ),
-				'menu_title' => __( 'Forms' ),
-				'callback' => 'forms_page', // note that this has to be a class method
-				'hookname' => null,
-			),
-			'mp6-sg-helper-classes' => array(
-				'page_title' => __( 'Helper Classes' ),
-				'menu_title' => __( 'Helper Classes' ),
-				'callback' => 'helper_classes', // note that this has to be a class method
-				'hookname' => null,
-			),
-			'mp6-dashicons' => array(
-				'page_title' => __( 'Dashicons' ),
-				'menu_title' => __( 'Dashicons' ),
-				'callback' => 'dashicons', // note that this has to be a class method
-				'hookname' => null,
-			),
-		);
+		$this->screens = $this->get_default_screens();
 	}
 
+	/**
+	 * Hook in to action and filter hooks.
+	 */
 	public function run() {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 		add_action( 'admin_head', array( $this, 'admin_head' ) );
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+	}
+
+	/**
+	 * Define the screens.
+	 *
+	 * @return array Screen configuration data.
+	 */
+	public function get_default_screens() {
+		return array(
+			'mp6-sg-jquery-ui'      => array(
+				'page_title' => __( 'jQuery UI Components' ),
+				'menu_title' => __( 'jQuery UI Components' ),
+				'callback'   => 'jquery_ui', // note that this has to be a class method
+				'hookname'   => null,
+			),
+			'mp6-sg-forms'          => array(
+				'page_title' => __( 'Forms' ),
+				'menu_title' => __( 'Forms' ),
+				'callback'   => 'forms_page', // note that this has to be a class method
+				'hookname'   => null,
+			),
+			'mp6-sg-helper-classes' => array(
+				'page_title' => __( 'Helper Classes' ),
+				'menu_title' => __( 'Helper Classes' ),
+				'callback'   => 'helper_classes', // note that this has to be a class method
+				'hookname'   => null,
+			),
+			'mp6-dashicons'         => array(
+				'page_title' => __( 'Dashicons' ),
+				'menu_title' => __( 'Dashicons' ),
+				'callback'   => 'dashicons', // note that this has to be a class method
+				'hookname'   => null,
+			),
+		);
 	}
 
 	/**
