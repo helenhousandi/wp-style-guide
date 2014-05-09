@@ -1,12 +1,12 @@
 <?php
 /*
 Plugin Name: WordPress Style Guide
-Plugin URI: https://github.com/helenhousandi/wp-style-guide
+Plugin URI:  https://github.com/helenhousandi/wp-style-guide
 Description: Because it's horrible that we don't have one.
-Version: 1.0
-Author: The WordPress Team
-Author URI: http://wordpress.org
-License: GPLv2 or later
+Version:     1.0.0
+Author:      The WordPress Team
+Author URI:  http://wordpress.org
+License:     GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
@@ -24,14 +24,14 @@ class WP_Style_Guide {
 	private $hookname;
 
 	/**
-	 * Set up hooks.
+	 * Assign values to properties.
 	 */
 	public function __construct() {
 		$this->screens = $this->get_default_screens();
 	}
 
 	/**
-	 * Hook in to action and filter hooks.
+	 * Set up hooks.
 	 */
 	public function run() {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
@@ -75,7 +75,6 @@ class WP_Style_Guide {
 
 	/**
 	 * Enqueue scripts and styles as needed.
-	 * @return void
 	 */
 	public function admin_enqueue_scripts() {
 		if ( get_current_screen()->base === $this->screens['mp6-sg-jquery-ui']['hookname'] ) {
@@ -107,7 +106,6 @@ class WP_Style_Guide {
 
 	/**
 	 * Add admin screens
-	 * @return void
 	 */
 	public function admin_menu() {
 		$this->hookname = add_menu_page( 'WordPress Style Guide', 'Style Guide', 'read', 'mp6-sg', array( $this, 'toc' ) );
@@ -119,7 +117,6 @@ class WP_Style_Guide {
 
 	/**
 	 * Output for our top level screen
-	 * @return void
 	 */
 	public function toc() {
 ?>
@@ -142,25 +139,29 @@ class WP_Style_Guide {
 	}
 
 	/**
-	 * Output jQuery UI components admin page using jQuery UI's theme visual test
-	 * @return void
+	 * Output jQuery UI components admin page using jQuery UI's theme visual test.
 	 */
 	public function jquery_ui() {
 		include_once( 'pages/jquery-ui.php' );
 	}
 
 	/**
-	 * Output form component admin page
-	 * @return void
+	 * Output form component admin page.
 	 */
 	public function forms_page() {
 		include_once( 'pages/forms-page.php' );
 	}
 
+	/**
+	 * Output helper classes admin page.
+	 */
 	public function helper_classes() {
 		include_once( 'pages/helper-classes.php' );
 	}
 	
+	/**
+	 * Output Dashicon admin page.
+	 */
 	public function dashicons() {
 		include_once( 'pages/dashicons.php' );
 	}
