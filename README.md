@@ -28,3 +28,8 @@ Pull requests and issues welcome. How this is developed will likely be ever-evol
 1. Create styles as needed to make everything beautiful, consistent, and usable. Don't forget responsive considerations and usage within other components, such as forms within meta boxes.
 1. Add code samples to the test pages. Boom, now they're style guide pages.
 1. Add magic that kicks logged in users to the admin, so that they view the style guide within the context of the admin. It should redirect non-logged-in users to the login page, and should hide everything except the style guide pages. The toolbar should show the W menu, My Sites, the user menu, and custom links to a few places like WordPress.org.
+
+## Related Works ##
+
+[WordPress Admin Style](https://github.com/bueltge/WordPress-Admin-Style)
+
